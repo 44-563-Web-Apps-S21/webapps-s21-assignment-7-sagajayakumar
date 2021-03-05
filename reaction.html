@@ -17,7 +17,7 @@
 
     <p id="starts">Your Time</p>
     <p id="countdown">count</p>
-    <button type="button" class="btn btn-primary" onclick="recordReact()">Start Timer</button>
+    <button type="button" class="btn btn-primary" onclick="startTime()">Start Timer</button>
     <button type="button" class="btn btn-primary" onclick="recordReact()">React Now</button>
     <button type="button" class="btn btn-primary" onclick="buttonPress2()">
   Click me change the color.</button>
@@ -29,8 +29,27 @@
 
         function recordReact() {
             myTime = Date.now();
-
+            document.getElementById('starts').innerHTML = "Your time " + myTime;
             console.log(myTime);
+        }
+
+        function startTime() {
+            for (var i = 0; i < 3; i++) {
+                k = setTimeout(function() {
+                    document.getElementById('countdown').innerHTML = i;
+                }, (3 - i) * 1000);
+
+            }
+            setTimeout(function() {
+                if (myTime == undefined) {
+                    document.getElementById('target').innerHTML = "Too Slow";
+                } else {
+                    var buttonTime = Date.now();
+                    diff = buttonTime - myTime;
+                    document.getElementById('target').innerHTML = "Time was " + diff;
+                    document.getElementById('target').style.color = "Green";
+                }
+            }, 3000);
         }
 
         function buttonPress1() {
