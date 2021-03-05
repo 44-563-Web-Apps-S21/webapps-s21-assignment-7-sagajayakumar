@@ -73,7 +73,11 @@
             "img20", "img21", "img22", "img23", "img24",
         ];
         var clickCount = 0;
-        var treasureLocation = 18;
+        var treasureLocation = Math.floor((Math.random() * 24) + 0);
+        var game = {
+            clickCount = 0,
+            treasureLocation = Math.floor((Math.random() * 24) + 0)
+        }
         var imgId = 0;
         clicks = document.getElementById("clicks");
         dist = document.getElementById("distance");
@@ -91,7 +95,7 @@
             var treasureL = 18;
 
             var d = distance(position, treasureL);
-            dist.innerHTML = "Distane is " + d;
+            dist.innerHTML = "Distance is " + d;
         }
 
         function distance(pos1, pos2) {

@@ -53,6 +53,23 @@
         element.setAttribute('class', 'listy');
         element.style.color = "orange"
 
+        var listyItems = document.getElementsByClassName("listy");
+        len = listyItems.length;
+        var r = 0;
+        if (len > 8) {
+            for (var k = 0; k < 8; k++) {
+                if (listyItems[k].innerHTML == element.innerHTML) {
+                    listyItems[k].remove();
+                    console.log("We are getting rid of duplicates");
+                    r = 1;
+                    break;
+                }
+            }
+            if (r == 0) {
+                i = Math.floor((Math.random() * 9) + 0);
+                listyItems[i].remove();
+            }
+        }
         /* add it to the container */
         document.getElementById('target').appendChild(element)
 

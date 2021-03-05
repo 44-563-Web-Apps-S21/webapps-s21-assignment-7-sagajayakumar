@@ -35,9 +35,10 @@
 
         function startTime() {
             for (var i = 0; i < 3; i++) {
+                var cd = Math.floor((Math.random() * 10) + 2);
                 k = setTimeout(function() {
                     document.getElementById('countdown').innerHTML = i;
-                }, (3 - i) * 1000);
+                }, (cd - i) * 1000);
 
             }
             setTimeout(function() {
